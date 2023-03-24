@@ -6,66 +6,59 @@
 /*   By: sforesti <sforesti@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 13:44:03 by sforesti          #+#    #+#             */
-/*   Updated: 2023/03/21 15:13:48 by sforesti         ###   ########.fr       */
+/*   Updated: 2023/03/24 10:26:17 by sforesti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
 
-int	swap(t_list *a)
+char	*swap(t_list *a, int name)
 {
 	t_list *swap;
 
 	swap = malloc(sizeof(t_list));
+	if (!swap)
+		return ("-1");
 	if (a == NULL || a->next == NULL)
-		return (-1);
+		return ("-1");
 	swap->content = a->content;
        	a->content = a->next->content;
 	a->next->content = swap->content;
+	if (name == 1)
+		return ("sa");
+	else if (name == 2)
+		return ("sb");
 	return (0);
 }
 
-int	ss(t_list *a, t_list *b)
+char	*ss(t_list *a, t_list *b)
 {
-	swap(a);
-	swap(b);
-	return (0);
+	swap(a, 0);
+	swap(b, 0);
+	return ("ss");
 }
 
-int	push(t_list *a, t_list *b)
+char	*push(t_list *a, t_list *b, int name)
 {	
 	t_list *swap;
 
-	if (b == NULL)
-		return (-1);
+	if (!b)
+		return ("-1");
 	swap = malloc(sizeof(t_list));
+	if (!swap)
+		return ("-1");
 	swap->next = a;
 	swap->content = b->content;
 	a = swap;
+	if (name == 1)
+		return ("pa");
+	else if (name == 2)
+		return ("pb");
 	return (0);
 }
 
-int rotate(t_list **a)
-{
-	t_list	*begin_a;
 
-	begin_a = *a;
-	ft_lstadd_back(a, ft_lstnew(begin_a->content));
-	begin_a = (*a)->next;
-	free(*a);
-	(*a) = begin_a;
-	return (0);
-}
-
-int	reverse_rotate(t_list **a)
-{
-	t_list *l_bis;
-
-	l_bis = ft_lstlast(*a);
-	//printf("val:::::::::%d\n", (int)l_bis->content);
-	return (0);
-}
 
 /*
 t_list	**initialisation(char **av)
@@ -81,7 +74,7 @@ int main()
 	ft_lstadd_back(&a, ft_lstnew((void*)87));
 	ft_lstadd_back(&a, ft_lstnew((void*)42));
 //	write(1,"a", 1);
-	reverse_rotate(&a);	
+	reverse_rotate(&a, 1);	
 //	write(1,"b", 1);
 	while (a)
 	{

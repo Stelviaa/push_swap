@@ -1,4 +1,4 @@
-SRCS = srcs/instruction.c
+SRCS = srcs/instruction.c srcs/instructions_rotates.c
 
 SRCS_BONUS	= 
 CC = gcc
