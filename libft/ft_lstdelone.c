@@ -6,9 +6,10 @@
 /*   By: sforesti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 18:13:05 by sforesti          #+#    #+#             */
-/*   Updated: 2022/11/14 18:43:04 by sforesti         ###   ########.fr       */
+/*   Updated: 2023/03/24 12:35:46 by sforesti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
 void	ft_lstdelone(t_list *lst, void (*del)(void*))

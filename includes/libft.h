@@ -6,7 +6,7 @@
 /*   By: sforesti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:38:19 by sforesti          #+#    #+#             */
-/*   Updated: 2023/03/09 13:48:28 by sforesti         ###   ########.fr       */
+/*   Updated: 2023/03/24 11:21:10 by sforesti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,4 +87,5 @@ int		r_exit(char c, va_list av1);
 int		percent_out(void);
 char	*get_next_line(int fd);
 int	ft_strcmp(char *s1, char *s2);
+void	ft_lstdel(void	*content);
 #endif

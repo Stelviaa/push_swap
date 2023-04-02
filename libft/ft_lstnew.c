@@ -6,9 +6,10 @@
 /*   By: sforesti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 16:12:00 by sforesti          #+#    #+#             */
-/*   Updated: 2022/11/14 16:49:28 by sforesti         ###   ########.fr       */
+/*   Updated: 2023/03/24 14:49:07 by sforesti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
 t_list	*ft_lstnew(void *content)

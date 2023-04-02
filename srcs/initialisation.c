@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   initialisation.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sforesti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/14 18:24:21 by sforesti          #+#    #+#             */
-/*   Updated: 2023/03/24 14:49:03 by sforesti         ###   ########.fr       */
+/*   Created: 2023/03/24 15:31:37 by sforesti          #+#    #+#             */
+/*   Updated: 2023/04/02 12:16:38 by sforesti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "push_swap.h"
+
 #include "libft.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void*))
+t_list	*fill_a(char **av)
 {
-	t_list	*l_bis;
+	t_list	*a;
+	int		i;
+	int num;
 
-	if (!lst || !del)
-		return ;
-	while (*lst)
+	num = ft_atoi(av[1]);
+	i = 2;
+	a = ft_lstnew(*(void**)&num);
+	while (av[i])
 	{
-		l_bis = (*lst)->next;
-		ft_lstdelone(*lst, del);
-		*lst = l_bis;
+		num = ft_atoi(av[i]);
+		ft_lstadd_back(&a, ft_lstnew(*(void**)&num));
+		i ++;
 	}
+	return (a);
 }
