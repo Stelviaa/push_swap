@@ -6,7 +6,7 @@
 /*   By: sforesti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 12:07:27 by sforesti          #+#    #+#             */
-/*   Updated: 2023/04/02 13:39:02 by sforesti         ###   ########.fr       */
+/*   Updated: 2023/04/02 15:21:59 by sforesti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@ char	*rotate(t_list **a, int name);
 char 	*rr(t_list **sa, t_list **b);
 char	*reverse_rotate(t_list **a, int name);
 char 	*rrr(t_list **a, t_list	**b);
-void	algo(t_list **a, t_list **b);
+void	algo(t_list **a, t_list **b, int ac);
 t_list	*fill_a(char **av);
 #endif

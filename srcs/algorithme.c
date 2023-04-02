@@ -6,44 +6,59 @@
 /*   By: sforesti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 14:50:11 by sforesti          #+#    #+#             */
-/*   Updated: 2023/04/02 15:04:13 by sforesti         ###   ########.fr       */
+/*   Updated: 2023/04/02 16:08:38 by sforesti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    *found(t_list **a)
+long int *found(t_list **a)
 {
-    void    *value;
+    long int    *value;
 	t_list	*tmp;
+	long int i;
     
-    value = (*a)->content;
+	value = malloc(sizeof(long int) * 2);
+    value[0] = (long int)(*a)->content;
+	value[1] = 0;
+	i = 0;
 	tmp = (*a);
     tmp = tmp->next;
     while (tmp)
     {
-        if (tmp->content < value)
-            value = tmp->content;
+        if (tmp->content < (void*)value[0])
+		{
+            value[0] = (long int)tmp->content;
+			value[1] = i;
+		}
         tmp = tmp->next;
+		i++;
     }
     return (value);
 }
 
-void	push_on_b(t_list **a, t_list **b)
+void	push_on_b(t_list **a, t_list **b, int ac)
 {
-    void *value;
+    long int *value;
 
     value = found(a);
-	while (value != ((*a)->content))
-		ft_printf("%s\n",rotate(a, 1));
+	//ft_printf ("choose_ins:%d", choose_ins(a));
+	while (value[0] != (long int)((*a)->content))
+	{
+		if ((int)value[1] < (ac - 2) / 2)
+			ft_printf("%s\n",rotate(a, 1));
+		else if ((int)value[1] > (ac - 2) / 2)
+			ft_printf("%s\n",reverse_rotate(a, 1));
+			
+	}
 	ft_printf("%s\n",push(b, a, 2));
 }
 
-void	algo(t_list **a, t_list **b)
+void	algo(t_list **a, t_list **b, int ac)
 {
 	while ((*a))
 	{
-		push_on_b(a, b);
+		push_on_b(a, b, ac);
 	}/*
 	while ((*b))
 	{
