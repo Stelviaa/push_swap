@@ -6,7 +6,7 @@
 /*   By: sforesti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 10:20:23 by sforesti          #+#    #+#             */
-/*   Updated: 2023/03/24 10:27:09 by sforesti         ###   ########.fr       */
+/*   Updated: 2023/04/02 15:07:48 by sforesti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ char	*rotate(t_list **a, int name)
 	free(*a);
 	(*a) = begin_a;
 	if (name == 1)
-		return ("rra");
+		return ("ra");
 	else if (name == 2)
-		return ("rrb");
+		return ("rb");
 	return ("0");
 }
 

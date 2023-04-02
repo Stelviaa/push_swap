@@ -6,7 +6,7 @@
 /*   By: sforesti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 13:44:03 by sforesti          #+#    #+#             */
-/*   Updated: 2023/04/02 13:08:53 by sforesti         ###   ########.fr       */
+/*   Updated: 2023/04/02 15:05:00 by sforesti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ int main(int ac, char **av)
 //	write(1,"b", 1);
 	while (a)
 	{
-		printf("val:%d\n", (int)a->content);
+		printf("vali:%d\n", (int)a->content);
 		a = a->next;
 	}
 	//printf("valb:%d\n", (int)b->content);

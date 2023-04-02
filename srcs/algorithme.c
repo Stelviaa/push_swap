@@ -6,7 +6,7 @@
 /*   By: sforesti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 14:50:11 by sforesti          #+#    #+#             */
-/*   Updated: 2023/04/02 13:20:34 by sforesti         ###   ########.fr       */
+/*   Updated: 2023/04/02 15:04:13 by sforesti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ void	push_on_b(t_list **a, t_list **b)
     void *value;
 
     value = found(a);
-	while (!(value == ((*a)->content)))
-		rotate(a, 1);
-	push(b, a, 2);
+	while (value != ((*a)->content))
+		ft_printf("%s\n",rotate(a, 1));
+	ft_printf("%s\n",push(b, a, 2));
 }
 
 void	algo(t_list **a, t_list **b)
@@ -44,14 +44,14 @@ void	algo(t_list **a, t_list **b)
 	while ((*a))
 	{
 		push_on_b(a, b);
-	}
+	}/*
 	while ((*b))
 	{
 		ft_printf("valb:%d\n", (int)(*b)->content);
 		(*b) = (*b)->next;
-	}
+	}*/
 	while ((*b))
 	{
-		push(a, b, 1);
+		ft_printf("%s\n",push(a, b, 1));
 	}	
 }

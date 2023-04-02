@@ -6,7 +6,7 @@
 /*   By: sforesti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 12:07:27 by sforesti          #+#    #+#             */
-/*   Updated: 2023/04/02 11:45:37 by sforesti         ###   ########.fr       */
+/*   Updated: 2023/04/02 13:39:02 by sforesti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include <limits.h>
 # include "libft.h"
 
 char	*push(t_list **a, t_list **b, int name);
