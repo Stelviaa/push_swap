@@ -6,7 +6,7 @@
 /*   By: sforesti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 17:15:16 by sforesti          #+#    #+#             */
-/*   Updated: 2023/04/03 13:53:14 by sforesti         ###   ########.fr       */
+/*   Updated: 2023/04/03 17:15:59 by sforesti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 		*lst = new;
 	else
 	{
-		l_bis = ft_lstlast(*lst);
+		l_bis = ft_lstlast(lst);
 		l_bis->next = new;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: sforesti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 13:44:03 by sforesti          #+#    #+#             */
-/*   Updated: 2023/04/03 13:19:31 by sforesti         ###   ########.fr       */
+/*   Updated: 2023/04/03 18:55:51 by sforesti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,30 +62,16 @@ int main(int ac, char **av)
 	b = NULL;
 	(void) ac;
 	a = fill_a(av);
-	//ft_printf("%s\n", swap(&a, 1));
-	//algo(&a, &b, ac);
 	init_pos(&a);
-	//printf("ac:%d", ac);
-//	write(1,"a", 1);
-	//reverse_rotate(&a, 1);	
-//	write(1,"b", 1);
-	while (a)
-	{
-		printf("vali:%d index:%d\n", (int)a->content, a->index);
-		a = a->next;
-	}
-	//printf("valb:%d\n", (int)b->content);
-	//ft_lstclear(&a, ft_lstdel);
-	//system("leaks push_swap");
+	if (ft_lstsize(&a) < 4)
+		algo(&a, &b, 30);
+	if (ft_lstsize(&a) < 101)
+		algo(&a, &b, 12);
+	if (ft_lstsize(&a) < 501)
+		algo(&a, &b, 30);
+	while (b)
+		algo_bis(&a, &b);
+	ft_lstclear(&a, ft_lstdel);
+	system("leaks push_swap");
 	return (0);
 }
-
-
-
-
-
-
-
-
-
-

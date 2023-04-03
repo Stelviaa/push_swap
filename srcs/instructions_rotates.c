@@ -6,7 +6,7 @@
 /*   By: sforesti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 10:20:23 by sforesti          #+#    #+#             */
-/*   Updated: 2023/04/02 15:07:48 by sforesti         ###   ########.fr       */
+/*   Updated: 2023/04/03 17:17:10 by sforesti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,15 @@
 
 char	*rotate(t_list **a, int name)
 {
-	t_list	*begin_a;
+	t_list	*tmp;
+	t_list	*begin_l;
 
-	begin_a = *a;
-	ft_lstadd_back(a, ft_lstnew(begin_a->content));
-	begin_a = (*a)->next;
-	free(*a);
-	(*a) = begin_a;
+	
+	begin_l = (*a)->next;
+	tmp = (*a);
+	(tmp)->next = NULL;
+	ft_lstlast(&begin_l)->next = tmp;
+	(*a) = begin_l;
 	if (name == 1)
 		return ("ra");
 	else if (name == 2)
@@ -40,7 +42,7 @@ char	*reverse_rotate(t_list **a, int name)
 	t_list	*l_bis;
 	t_list	*swap;
 
-	l_bis = ft_lstlast(*a);
+	l_bis = ft_lstlast(a);
 	swap = (*a);
 	while ((*a)->next->next)
 		(*a) = (*a)->next;
