@@ -6,7 +6,7 @@
 /*   By: sforesti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 16:12:00 by sforesti          #+#    #+#             */
-/*   Updated: 2023/03/24 14:49:07 by sforesti         ###   ########.fr       */
+/*   Updated: 2023/04/03 13:52:55 by sforesti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ t_list	*ft_lstnew(void *content)
 	if (!lst)
 		return (NULL);
 	lst->content = content;
+	lst->index = -1;
 	lst->next = 0;
 	return (lst);
 }

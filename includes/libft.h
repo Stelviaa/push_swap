@@ -6,7 +6,7 @@
 /*   By: sforesti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:38:19 by sforesti          #+#    #+#             */
-/*   Updated: 2023/03/24 11:21:10 by sforesti         ###   ########.fr       */
+/*   Updated: 2023/04/03 11:49:59 by sforesti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
  typedef struct s_list
  {
 	void			*content;
+	int				index;
 	struct s_list	*next;
  }	t_list;
 void	ft_bzero(void *s, size_t n);
