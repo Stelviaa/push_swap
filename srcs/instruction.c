@@ -6,7 +6,7 @@
 /*   By: sforesti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 13:44:03 by sforesti          #+#    #+#             */
-/*   Updated: 2023/04/04 16:43:15 by sforesti         ###   ########.fr       */
+/*   Updated: 2023/04/04 18:03:26 by sforesti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ int main(int ac, char **av)
 		a = fill_a(av);
 	else if (ac == 2)
 		a = fill_a_checker(av);
+	manage_exit(&a);
 	init_pos(&a);
 	if (ft_lstsize(&a) < 4)
 		algo_small_value(&a);

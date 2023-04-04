@@ -6,7 +6,7 @@
 /*   By: sforesti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:38:19 by sforesti          #+#    #+#             */
-/*   Updated: 2023/04/03 17:11:36 by sforesti         ###   ########.fr       */
+/*   Updated: 2023/04/04 18:26:25 by sforesti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ int		ft_tolower(int c);
 int		ft_toupper(int c);
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 int		ft_atoi(const char *str);
+long int	ft_atoi_long(const char *str);
 void	*ft_calloc(size_t nmemb, size_t size);
 char	*ft_strdup(char *src);
 char	*ft_substr(char const *s, unsigned int start, size_t len);

@@ -6,7 +6,7 @@
 /*   By: sforesti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 15:31:37 by sforesti          #+#    #+#             */
-/*   Updated: 2023/04/04 16:45:01 by sforesti         ###   ########.fr       */
+/*   Updated: 2023/04/04 18:43:23 by sforesti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ t_list	*fill_a(char **av)
 	int		i;
 	long int num;
 
-	num = ft_atoi(av[1]);
+	num = ft_atoi_long(av[1]);
 	i = 1;
 	a = ft_lstnew((void*)num);
 	while (av[++i])
 	{
-		num = ft_atoi(av[i]);
+		num = ft_atoi_long(av[i]);
 		ft_lstadd_back(&a, ft_lstnew((void*)num));
 	}
 	return (a);
@@ -38,15 +38,18 @@ t_list	*fill_a_checker(char **av)
 	char	**num_char;
 	long int num;
 
-	num = ft_atoi(av[1]);
+	num = ft_atoi_long(av[1]);
 	i = 0;
 	a = ft_lstnew((void*)num);
 	num_char = ft_split(av[1], " ");
 	while (num_char[++i])
 	{
-		num = ft_atoi(num_char[i]);
+		num = ft_atoi_long(num_char[i]);
 		ft_lstadd_back(&a, ft_lstnew((void*)num));
 	}
+	i = 0;
+	while (num_char[i++])
+		free(num_char[i]);
 	return (a);	
 }
 

@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_atoi_long.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sforesti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 17:28:37 by sforesti          #+#    #+#             */
-/*   Updated: 2023/04/04 18:25:52 by sforesti         ###   ########.fr       */
+/*   Updated: 2023/04/04 18:26:08 by sforesti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *str)
+long int	ft_atoi_long(const char *str)
 {
 	int	i;
 	int	negative;
-	int	nb;
+	long int	nb;
 
 	i = 0;
 	negative = 1;

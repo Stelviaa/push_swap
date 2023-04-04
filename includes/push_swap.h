@@ -6,7 +6,7 @@
 /*   By: sforesti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 12:07:27 by sforesti          #+#    #+#             */
-/*   Updated: 2023/04/04 16:41:56 by sforesti         ###   ########.fr       */
+/*   Updated: 2023/04/04 18:02:02 by sforesti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,6 @@ void    algo_small_value(t_list **a);
 void	algo_five(t_list **a, t_list **b);
 void	algo_bis_five(t_list **a, t_list **b);
 t_list	*fill_a_checker(char **av);
+int     verif_pair(t_list **a);
+void	manage_exit(t_list **a);
 #endif
