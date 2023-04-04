@@ -6,7 +6,7 @@
 /*   By: sforesti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 14:50:11 by sforesti          #+#    #+#             */
-/*   Updated: 2023/04/03 17:57:01 by sforesti         ###   ########.fr       */
+/*   Updated: 2023/04/04 16:08:54 by sforesti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,46 @@ void	algo_bis(t_list **a, t_list **b)
 			ft_printf("%s\n", rotate(b, 2));
 	ft_printf("%s\n", push(a, b, 1));
 }
-/*
-if (b->index >lenb)
-	rb*/
+void	algo_small_value(t_list **a)
+{
+	int size;
+
+	size = ft_lstsize(a);
+	if ((*a)->index == 1 && (*a)->next->index == 3)
+	{
+		ft_printf("%s\n", swap(a, 1));
+		ft_printf("%s\n", rotate(a, 1));
+	}
+	else if ((*a)->index == 3 && (*a)->next->index == 2)
+	{
+		ft_printf("%s\n", reverse_rotate(a, 1));
+		ft_printf("%s\n", reverse_rotate(a, 1));
+	}
+	else if ((*a)->index == 2 && (*a)->next->index == 3)
+		ft_printf("%s\n", reverse_rotate(a, 1));
+	else if ((*a)->index == 3 && (*a)->next->index == 1)
+		ft_printf("%s\n", rotate(a, 1));
+}
+
+void	algo_five(t_list **a, t_list **b)
+{
+	int	i;
+	int size_a;
+
+	i = 1;
+	size_a = ft_lstsize(a);
+	while ((*a)->next->next)
+	{
+		if (i > 2 && (*b)->index > ft_lstsize(b))
+			ft_printf("%s\n", rotate(b, 2));
+		if ((*a)->index < 4)
+		{
+			ft_printf("%s\n", push(b, a, 2));
+			i++;
+		}
+		else
+			ft_printf("%s\n", rotate(a, 1));
+	}
+	if ((*a)->index > (*a)->next->index)
+		ft_printf("%s\n", swap(a, 1));
+}

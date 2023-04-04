@@ -6,7 +6,7 @@
 /*   By: sforesti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 15:31:37 by sforesti          #+#    #+#             */
-/*   Updated: 2023/04/03 14:26:37 by sforesti         ###   ########.fr       */
+/*   Updated: 2023/04/04 16:45:01 by sforesti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,25 @@ t_list	*fill_a(char **av)
 		ft_lstadd_back(&a, ft_lstnew((void*)num));
 	}
 	return (a);
+}
+
+t_list	*fill_a_checker(char **av)
+{
+	t_list	*a;
+	int i;
+	char	**num_char;
+	long int num;
+
+	num = ft_atoi(av[1]);
+	i = 0;
+	a = ft_lstnew((void*)num);
+	num_char = ft_split(av[1], " ");
+	while (num_char[++i])
+	{
+		num = ft_atoi(num_char[i]);
+		ft_lstadd_back(&a, ft_lstnew((void*)num));
+	}
+	return (a);	
 }
 
 long int found_min(t_list **a)
