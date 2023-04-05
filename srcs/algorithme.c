@@ -6,11 +6,29 @@
 /*   By: sforesti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 14:50:11 by sforesti          #+#    #+#             */
-/*   Updated: 2023/04/05 13:13:43 by sforesti         ###   ########.fr       */
+/*   Updated: 2023/04/05 14:20:20 by sforesti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	choose_algo(t_list *a, t_list *b)
+{
+	if (ft_lstsize(&a) < 4)
+		algo_small_value(&a);
+	else if (ft_lstsize(&a)	== 4)
+		algo_five(&a, &b, 3);
+	else if (ft_lstsize(&a) == 5)
+		algo_five(&a, &b, 4);
+	else if (ft_lstsize(&a) < 101)
+		algo(&a, &b, 12);
+	else if (ft_lstsize(&a) < 501)
+		algo(&a, &b, 30);
+	while (b)
+	{
+		algo_bis(&a, &b);
+	}
+}
 
 void	algo(t_list **a, t_list **b, int size)
 {
