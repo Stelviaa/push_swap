@@ -6,13 +6,20 @@
 /*   By: sforesti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 15:31:37 by sforesti          #+#    #+#             */
-/*   Updated: 2023/04/04 18:43:23 by sforesti         ###   ########.fr       */
+/*   Updated: 2023/04/05 12:03:38 by sforesti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-#include "libft.h"
+void	exit_fail(t_list *a)
+{
+	(void)a;
+	ft_printf("Error\ncontent not int\n");
+	ft_lstclear(&a, ft_lstdel);
+	system("leaks push_swap");
+	exit(0);
+}
 
 t_list	*fill_a(char **av)
 {
@@ -26,6 +33,8 @@ t_list	*fill_a(char **av)
 	while (av[++i])
 	{
 		num = ft_atoi_long(av[i]);
+		if (num > INT_MAX || num < INT_MIN)
+			exit_fail(a);
 		ft_lstadd_back(&a, ft_lstnew((void*)num));
 	}
 	return (a);
@@ -45,6 +54,12 @@ t_list	*fill_a_checker(char **av)
 	while (num_char[++i])
 	{
 		num = ft_atoi_long(num_char[i]);
+		if (num > INT_MAX || num < INT_MIN)
+		{
+			while (num_char[i++])
+				free(num_char[i]);
+			exit_fail(a);
+		}
 		ft_lstadd_back(&a, ft_lstnew((void*)num));
 	}
 	i = 0;
@@ -58,11 +73,11 @@ long int found_min(t_list **a)
     long int    value;
 	t_list	*tmp;
     
-    value = 2147483647;
+    value = 2147483648;
 	tmp = (*a);
     while (tmp)
     {
-        if (tmp->index == (-1) && tmp->content < (void*)value)
+        if (tmp->index == (-1) && (long int)tmp->content < value)
             value = (long int)tmp->content;
         tmp = tmp->next;
     }

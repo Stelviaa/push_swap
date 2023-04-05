@@ -6,7 +6,7 @@
 /*   By: sforesti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 13:44:03 by sforesti          #+#    #+#             */
-/*   Updated: 2023/04/04 18:03:26 by sforesti         ###   ########.fr       */
+/*   Updated: 2023/04/05 11:44:07 by sforesti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,30 +59,4 @@ char	*push(t_list **a, t_list **b, int name)
 	return (0);
 }
 
-int main(int ac, char **av)
-{
-	t_list	*a;
-	t_list	*b;
 
-	b = NULL;
-	if (ac > 2)
-		a = fill_a(av);
-	else if (ac == 2)
-		a = fill_a_checker(av);
-	manage_exit(&a);
-	init_pos(&a);
-	if (ft_lstsize(&a) < 4)
-		algo_small_value(&a);
-	else if (ft_lstsize(&a) < 6)
-		algo_five(&a, &b);
-	else if (ft_lstsize(&a) < 101)
-		algo(&a, &b, 12);
-	else if (ft_lstsize(&a) < 501)
-		algo(&a, &b, 30);
-	while (b)
-	{ // ajouter condition de liste non triee
-		algo_bis(&a, &b);
-	}
-	ft_lstclear(&a, ft_lstdel);
-	return (0);
-}

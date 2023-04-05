@@ -6,7 +6,7 @@
 /*   By: sforesti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 14:50:11 by sforesti          #+#    #+#             */
-/*   Updated: 2023/04/04 16:08:54 by sforesti         ###   ########.fr       */
+/*   Updated: 2023/04/05 13:13:43 by sforesti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,9 +76,12 @@ void	algo_small_value(t_list **a)
 		ft_printf("%s\n", reverse_rotate(a, 1));
 	else if ((*a)->index == 3 && (*a)->next->index == 1)
 		ft_printf("%s\n", rotate(a, 1));
+	else if (((*a)->index == 2 && (*a)->next->index == 1))
+		ft_printf("%s\n", swap(a, 1));
+		
 }
 
-void	algo_five(t_list **a, t_list **b)
+void	algo_five(t_list **a, t_list **b, int limit)
 {
 	int	i;
 	int size_a;
@@ -89,7 +92,7 @@ void	algo_five(t_list **a, t_list **b)
 	{
 		if (i > 2 && (*b)->index > ft_lstsize(b))
 			ft_printf("%s\n", rotate(b, 2));
-		if ((*a)->index < 4)
+		if ((*a)->index < limit)
 		{
 			ft_printf("%s\n", push(b, a, 2));
 			i++;
