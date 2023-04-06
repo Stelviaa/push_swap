@@ -6,7 +6,7 @@
 /*   By: sforesti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 16:22:55 by sforesti          #+#    #+#             */
-/*   Updated: 2023/04/06 12:25:12 by sforesti         ###   ########.fr       */
+/*   Updated: 2023/04/06 13:44:29 by sforesti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,17 @@ void	manage_exit(t_list **a, char **av, int ac)
 	int	i;
 
 	i = 0;
+	(void)a;
 	if (verif_pair(a) == -1 || verif_content(av) == -1)
 	{
-		write(2, "Error\n", 6);
+		write(2, "Error1\n", 6);
 		exit(0);
 	}
 	while (av[++i])
 	{
 		if (ac > 2 && ft_strnstr(av[i], " ", 10))
 		{
-			write(2, "Error\n", 6);
+			write(2, "Error2\n", 6);
 			exit(0);
 		}
 	}
@@ -57,22 +58,22 @@ int	verif_pair(t_list **a)
 	int			i;
 	int			j;
 
-	i = 0;
+	i = -1;
 	j = 1;
 	tab_val = list_to_tab(a);
 	tmp_val = tab_val[0];
 	if (tmp_val > INT_MAX || tmp_val < INT_MIN)
 		return (-1);
-	while (i < ft_lstsize(a))
+	while (++i < ft_lstsize(a))
 	{
-		while (j++ < ft_lstsize(a))
+		while (j < ft_lstsize(a))
 		{
 			if (tmp_val == tab_val[j])
 				return (-1);
 			if (tmp_val > INT_MAX || tmp_val < INT_MIN)
 				return (-1);
+			j ++;
 		}
-		i ++;
 		tmp_val = tab_val[i];
 		j = i + 1;
 	}

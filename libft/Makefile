@@ -40,7 +40,6 @@ SRCS	=	ft_strlen.c \
 			out_conv.c	\
 			out_conv2.c	\
 			ft_strcmp.c	\
-			ft_strjoin_free.c \
 			ft_lstnew.c \
 			ft_lstadd_front.c \
 			ft_lstsize.c \
