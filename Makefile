@@ -1,6 +1,7 @@
 SRCS = srcs/instruction.c srcs/instructions_rotates.c srcs/initialisation.c srcs/algorithme.c srcs/error_managing.c srcs/utils.c srcs/main.c
 
-SRCS_BONUS	= srcs_bonus/main.c srcs_bonus/initialisation.c srcs_bonus/utils.c srcs_bonus/instruction.c srcs_bonus/instructions_rotates.c 
+SRCS_BONUS	= srcs_bonus/main.c srcs_bonus/initialisation.c srcs_bonus/utils.c srcs_bonus/instruction.c srcs_bonus/instructions_rotates.c \
+srcs_bonus/error_managing.c
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 CFLAGS += -Iincludes

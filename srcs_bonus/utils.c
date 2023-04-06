@@ -6,7 +6,7 @@
 /*   By: sforesti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 14:13:56 by sforesti          #+#    #+#             */
-/*   Updated: 2023/04/06 13:36:56 by sforesti         ###   ########.fr       */
+/*   Updated: 2023/04/06 16:43:22 by sforesti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,11 +81,13 @@ void	read_stdout(t_list **a, t_list **b)
 	char	*inst;
 	int		i;
 	int		statut;
+	int		j;
 
 	i = 0;
-	inst = get_next_line(0);
+	inst = malloc(sizeof(char) * 4);
+	j = read(STDIN_FILENO, inst, 4);
 	statut = 0;
-	while (inst)
+	while (j)
 	{
 		statut = exec_inst(inst, a, b);
 		if (!statut)
@@ -94,7 +96,7 @@ void	read_stdout(t_list **a, t_list **b)
 			free(inst);
 			exit(0);
 		}
-		inst = get_next_line(0);
+		j = read(STDIN_FILENO, inst, 4);
 	}
 	manage_exit(inst, a, b);
 }
