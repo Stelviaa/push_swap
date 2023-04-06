@@ -6,7 +6,7 @@
 /*   By: sforesti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 16:22:55 by sforesti          #+#    #+#             */
-/*   Updated: 2023/04/06 14:27:36 by sforesti         ###   ########.fr       */
+/*   Updated: 2023/04/06 16:54:03 by sforesti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ void	manage_exit(t_list **a, char **av, int ac)
 	int	i;
 
 	i = 0;
-	if (verif_pair(a) == -1 || verif_content(av) == -1)
+	verif_pair(a);
+	if (verif_content(av) == -1)
 	{
 		write(2, "Error\n", 6);
 		exit(0);
@@ -30,6 +31,13 @@ void	manage_exit(t_list **a, char **av, int ac)
 			exit(0);
 		}
 	}
+}
+
+int	free_tab(long int *tab)
+{
+	free(tab);
+	write(2, "Error\n", 6);
+	exit(0);
 }
 
 long int	*list_to_tab(t_list **a)
@@ -58,24 +66,24 @@ int	verif_pair(t_list **a)
 	int			j;
 
 	i = -1;
-	j = 1;
+	j = 0;
 	tab_val = list_to_tab(a);
 	tmp_val = tab_val[0];
 	if (tmp_val > INT_MAX || tmp_val < INT_MIN)
-		return (-1);
+		free_tab(tab_val);
 	while (++i < ft_lstsize(a))
 	{
-		while (j < ft_lstsize(a))
+		while (++j < ft_lstsize(a))
 		{
 			if (tmp_val == tab_val[j])
-				return (-1);
+				free_tab(tab_val);
 			if (tmp_val > INT_MAX || tmp_val < INT_MIN)
-				return (-1);
-			j ++;
+				free_tab(tab_val);
 		}
 		tmp_val = tab_val[i];
 		j = i + 1;
 	}
+	free(tab_val);
 	return (0);
 }
 
