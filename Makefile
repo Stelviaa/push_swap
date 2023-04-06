@@ -1,11 +1,11 @@
-SRCS = srcs/instruction.c srcs/instructions_rotates.c
+SRCS = srcs/instruction.c srcs/instructions_rotates.c srcs/initialisation.c srcs/algorithme.c srcs/error_managing.c srcs/utils.c srcs/main.c
 
-SRCS_BONUS	= 
+SRCS_BONUS	= srcs_bonus/main.c srcs_bonus/initialisation.c srcs_bonus/utils.c srcs_bonus/instruction.c srcs_bonus/instructions_rotates.c 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 CFLAGS += -Iincludes
 NAME = push_swap
-NAME_BONUS = push_swap_bonus
+NAME_BONUS = checker
 RM = rm -f
 LIBS = -Llibft -lft
 
