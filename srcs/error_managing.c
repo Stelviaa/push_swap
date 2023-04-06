@@ -6,7 +6,7 @@
 /*   By: sforesti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 16:22:55 by sforesti          #+#    #+#             */
-/*   Updated: 2023/04/06 11:02:09 by sforesti         ###   ########.fr       */
+/*   Updated: 2023/04/06 12:25:12 by sforesti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	manage_exit(t_list **a, char **av, int ac)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (verif_pair(a) == -1 || verif_content(av) == -1)
@@ -24,20 +24,20 @@ void	manage_exit(t_list **a, char **av, int ac)
 	}
 	while (av[++i])
 	{
-		if (ac > 2 && ft_strnstr(av[i]," ", 10))
+		if (ac > 2 && ft_strnstr(av[i], " ", 10))
 		{
 			write(2, "Error\n", 6);
-			exit(0);	
+			exit(0);
 		}
 	}
 }
 
-long int    *list_to_tab(t_list **a)
+long int	*list_to_tab(t_list **a)
 {
-	t_list      *tmp;
-	long int    *tab_val; 
-	int         i;
-	
+	t_list		*tmp;
+	long int	*tab_val;
+	int			i;
+
 	tmp = (*a);
 	tab_val = malloc(sizeof(long int) * ft_lstsize(a));
 	i = 0;
@@ -52,10 +52,10 @@ long int    *list_to_tab(t_list **a)
 
 int	verif_pair(t_list **a)
 {
-	long int    *tab_val;
+	long int	*tab_val;
 	long int	tmp_val;
-	int         i;
-	int         j;
+	int			i;
+	int			j;
 
 	i = 0;
 	j = 1;
@@ -65,13 +65,12 @@ int	verif_pair(t_list **a)
 		return (-1);
 	while (i < ft_lstsize(a))
 	{
-		while (j < ft_lstsize(a))
+		while (j++ < ft_lstsize(a))
 		{
 			if (tmp_val == tab_val[j])
 				return (-1);
 			if (tmp_val > INT_MAX || tmp_val < INT_MIN)
 				return (-1);
-			j ++;
 		}
 		i ++;
 		tmp_val = tab_val[i];
@@ -80,10 +79,10 @@ int	verif_pair(t_list **a)
 	return (0);
 }
 
-int verif_content(char  **av)
+int	verif_content(char **av)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	j = 0;

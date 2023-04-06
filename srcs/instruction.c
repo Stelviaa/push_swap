@@ -6,7 +6,7 @@
 /*   By: sforesti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 13:44:03 by sforesti          #+#    #+#             */
-/*   Updated: 2023/04/05 17:48:38 by sforesti         ###   ########.fr       */
+/*   Updated: 2023/04/06 12:25:57 by sforesti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ char	*swap(t_list **a, int name)
 	return (0);
 }
 
-
 char	*ss(t_list **a, t_list **b)
 {
 	swap(a, 0);
@@ -45,7 +44,7 @@ char	*ss(t_list **a, t_list **b)
 char	*push(t_list **a, t_list **b, int name)
 {	
 	t_list	*tmp;
-	
+
 	if (!(*b))
 		return ("-1");
 	tmp = (*b);
@@ -58,5 +57,3 @@ char	*push(t_list **a, t_list **b, int name)
 		return ("pb");
 	return (0);
 }
-
-

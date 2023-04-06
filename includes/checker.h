@@ -6,7 +6,7 @@
 /*   By: sforesti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 14:22:31 by sforesti          #+#    #+#             */
-/*   Updated: 2023/04/06 09:34:55 by sforesti         ###   ########.fr       */
+/*   Updated: 2023/04/06 12:15:29 by sforesti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,15 @@
 # include <limits.h>
 # include "libft.h"
 
-int	    push(t_list **a, t_list **b);
-int	    swap(t_list **a);
-int	    ss(t_list **a, t_list **b);
-int     rotate(t_list **a);
-int     rr(t_list **sa, t_list **b);
-int     reverse_rotate(t_list **a);
-int     rrr(t_list **a, t_list	**b);
-void    read_stdout(t_list **a, t_list	**b);
+int		push(t_list **a, t_list **b);
+int		swap(t_list **a);
+int		ss(t_list **a, t_list **b);
+int		rotate(t_list **a);
+int		rr(t_list **sa, t_list **b);
+int		reverse_rotate(t_list **a);
+int		rrr(t_list **a, t_list	**b);
+void	read_stdout(t_list **a, t_list	**b);
 t_list	*fill_a(char **av);
 t_list	*fill_a_checker(char **av);
-int verif_sort(t_list **a);
+int		verif_sort(t_list **a);
 #endif

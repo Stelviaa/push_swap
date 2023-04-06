@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sforesti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/24 14:50:11 by sforesti          #+#    #+#             */
-/*   Updated: 2023/04/06 10:53:19 by sforesti         ###   ########.fr       */
+/*   Created: 2023/04/06 12:01:31 by sforesti          #+#    #+#             */
+/*   Updated: 2023/04/06 12:23:44 by sforesti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	choose_algo(t_list *a, t_list *b)
 {
 	if (ft_lstsize(&a) < 4)
 		algo_small_value(&a);
-	else if (ft_lstsize(&a)	== 4)
+	else if (ft_lstsize(&a) == 4)
 		algo_five(&a, &b, 3);
 	else if (ft_lstsize(&a) == 5)
 		algo_five(&a, &b, 4);
@@ -38,11 +38,7 @@ void	algo(t_list **a, t_list **b, int size)
 	while ((*a))
 	{
 		if (i > 2 && (*b)->index > ft_lstsize(b))
-		{
 			ft_printf("%s\n", rotate(b, 2));
-			//tmp = (*a);
-			//i++;
-		}
 		if ((*a)->index <= size + i)
 		{
 			ft_printf("%s\n", push(b, a, 2));
@@ -57,7 +53,7 @@ void	algo_bis(t_list **a, t_list **b)
 {
 	t_list	*tmp;
 	int		size;
-	int i;
+	int		i;
 
 	tmp = (*b);
 	size = ft_lstsize(b);
@@ -68,16 +64,17 @@ void	algo_bis(t_list **a, t_list **b)
 			i ++;
 	}
 	if (i >= size / 2)
-		while((*b)->index != size)
+		while ((*b)->index != size)
 			ft_printf("%s\n", reverse_rotate(b, 2));
 	if (i < size / 2)
-		while((*b)->index != size)
+		while ((*b)->index != size)
 			ft_printf("%s\n", rotate(b, 2));
 	ft_printf("%s\n", push(a, b, 1));
 }
+
 void	algo_small_value(t_list **a)
 {
-	int size;
+	int	size;
 
 	size = ft_lstsize(a);
 	if ((*a)->index == 1 && (*a)->next->index == 3)
@@ -96,13 +93,12 @@ void	algo_small_value(t_list **a)
 		ft_printf("%s\n", rotate(a, 1));
 	else if (((*a)->index == 2 && (*a)->next->index == 1))
 		ft_printf("%s\n", swap(a, 1));
-		
 }
 
 void	algo_five(t_list **a, t_list **b, int limit)
 {
 	int	i;
-	int size_a;
+	int	size_a;
 
 	i = 1;
 	size_a = ft_lstsize(a);

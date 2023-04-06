@@ -6,7 +6,7 @@
 /*   By: sforesti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 13:44:03 by sforesti          #+#    #+#             */
-/*   Updated: 2023/04/05 17:48:49 by sforesti         ###   ########.fr       */
+/*   Updated: 2023/04/06 12:27:23 by sforesti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ int	swap(t_list **a)
 	return (0);
 }
 
-
 int	ss(t_list **a, t_list **b)
 {
 	swap(a);
@@ -40,7 +39,7 @@ int	ss(t_list **a, t_list **b)
 int	push(t_list **a, t_list **b)
 {	
 	t_list	*tmp;
-	
+
 	if (!(*b))
 		return (-1);
 	tmp = (*b);

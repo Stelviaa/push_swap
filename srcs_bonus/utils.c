@@ -6,20 +6,20 @@
 /*   By: sforesti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 14:13:56 by sforesti          #+#    #+#             */
-/*   Updated: 2023/04/06 09:35:57 by sforesti         ###   ########.fr       */
+/*   Updated: 2023/04/06 12:29:17 by sforesti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-int exec_inst(char  *instr, t_list **a, t_list **b)
+int	exec_inst(char *instr, t_list **a, t_list **b)
 {
-    if (!ft_strcmp(instr, "sa\n"))
-        swap(a);
+	if (!ft_strcmp(instr, "sa\n"))
+		swap(a);
 	else if (!ft_strcmp(instr, "sb\n"))
-        swap(b);
+		swap(b);
 	else if (!ft_strcmp(instr, "ss\n"))
-        ss(a, b);	
+		ss(a, b);
 	else if (!ft_strcmp(instr, "pa\n"))
 		push(a, b);
 	else if (!ft_strcmp(instr, "pb\n"))
@@ -41,9 +41,9 @@ int exec_inst(char  *instr, t_list **a, t_list **b)
 	return (1);
 }
 
-int verif_sort(t_list **a)
+int	verif_sort(t_list **a)
 {
-    t_list  *tmp;
+	t_list	*tmp;
 
 	tmp = (*a);
 	while (tmp->next)
@@ -71,22 +71,22 @@ int	manage_exit(char *inst, t_list	**a, t_list **b)
 		ft_lstclear(a, ft_lstdel);
 		if (ft_lstsize(b))
 			ft_lstclear(b, ft_lstdel);
-		exit(0);	
+		exit(0);
 	}
 	return (0);
 }
 
 void	read_stdout(t_list **a, t_list **b)
 {
-    char *inst;
-    int i;
-	int statut;
+	char	*inst;
+	int		i;
+	int		statut;
 
-    i = 0;
-    inst = get_next_line(0);
+	i = 0;
+	inst = get_next_line(0);
 	statut = 0;
-    while (inst)
-    {
+	while (inst)
+	{
 		statut = exec_inst(inst, a, b);
 		if (!statut)
 		{
@@ -95,6 +95,6 @@ void	read_stdout(t_list **a, t_list **b)
 			exit(0);
 		}
 		inst = get_next_line(0);
-    }
+	}
 	manage_exit(inst, a, b);
 }

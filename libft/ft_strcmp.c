@@ -6,13 +6,15 @@
 /*   By: sforesti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 16:12:48 by sforesti          #+#    #+#             */
-/*   Updated: 2023/02/15 16:35:57 by sforesti         ###   ########.fr       */
+/*   Updated: 2023/04/06 12:10:33 by sforesti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 int	ft_strcmp(char *s1, char *s2)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (s1[i] || s2[i])

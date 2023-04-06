@@ -6,7 +6,7 @@
 /*   By: sforesti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 17:00:19 by sforesti          #+#    #+#             */
-/*   Updated: 2023/04/03 15:42:38 by sforesti         ###   ########.fr       */
+/*   Updated: 2023/04/06 12:07:19 by sforesti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 int	ft_lstsize(t_list **lst)
 {
-	int	i;
-	t_list *tmp;
+	int		i;
+	t_list	*tmp;
 
 	i = 0;
 	tmp = (*lst);
 	while (tmp)
 	{
-		tmp = tmp->next;;
+		tmp = tmp->next;
 		i ++;
 	}
 	return (i);
