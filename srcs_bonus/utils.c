@@ -6,7 +6,7 @@
 /*   By: sforesti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 14:13:56 by sforesti          #+#    #+#             */
-/*   Updated: 2023/04/05 17:42:00 by sforesti         ###   ########.fr       */
+/*   Updated: 2023/04/06 09:35:57 by sforesti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int verif_sort(t_list **a)
 	tmp = (*a);
 	while (tmp->next)
 	{
-		if (tmp->content > tmp->next->content)
+		if ((long int)tmp->content > (long int)tmp->next->content)
 			return (0);
 		tmp = tmp->next;
 	}

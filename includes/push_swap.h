@@ -6,7 +6,7 @@
 /*   By: sforesti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 12:07:27 by sforesti          #+#    #+#             */
-/*   Updated: 2023/04/05 14:30:13 by sforesti         ###   ########.fr       */
+/*   Updated: 2023/04/06 10:37:16 by sforesti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	algo_five(t_list **a, t_list **b, int limit);
 void	algo_bis_five(t_list **a, t_list **b);
 t_list	*fill_a_checker(char **av);
 int		verif_pair(t_list **a);
-void	manage_exit(t_list **a, char **av);
+void	manage_exit(t_list **a, char **av, int ac);
 int		verif_sort(t_list **a);
 int		verif_content(char  **av);
 void	choose_algo(t_list *a, t_list *b);

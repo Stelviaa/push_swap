@@ -6,18 +6,29 @@
 /*   By: sforesti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 16:22:55 by sforesti          #+#    #+#             */
-/*   Updated: 2023/04/05 13:15:44 by sforesti         ###   ########.fr       */
+/*   Updated: 2023/04/06 11:02:09 by sforesti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	manage_exit(t_list **a, char **av)
+void	manage_exit(t_list **a, char **av, int ac)
 {
+	int i;
+
+	i = 0;
 	if (verif_pair(a) == -1 || verif_content(av) == -1)
 	{
 		write(2, "Error\n", 6);
 		exit(0);
+	}
+	while (av[++i])
+	{
+		if (ac > 2 && ft_strnstr(av[i]," ", 10))
+		{
+			write(2, "Error\n", 6);
+			exit(0);	
+		}
 	}
 }
 
@@ -50,6 +61,8 @@ int	verif_pair(t_list **a)
 	j = 1;
 	tab_val = list_to_tab(a);
 	tmp_val = tab_val[0];
+	if (tmp_val > INT_MAX || tmp_val < INT_MIN)
+		return (-1);
 	while (i < ft_lstsize(a))
 	{
 		while (j < ft_lstsize(a))
@@ -79,7 +92,7 @@ int verif_content(char  **av)
 		while (av[i][j])
 		{
 			if ((av[i][j] <= 57 && av[i][j] >= 48) || av[i][j] == 32
-			|| av[i][j] == 45)
+			|| (av[i][j] == 45 && av[i][j + 1] >= 48 && av[i][j + 1] <= 57))
 				j ++;
 			else
 				return (-1);

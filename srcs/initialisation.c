@@ -6,7 +6,7 @@
 /*   By: sforesti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 15:31:37 by sforesti          #+#    #+#             */
-/*   Updated: 2023/04/05 12:03:38 by sforesti         ###   ########.fr       */
+/*   Updated: 2023/04/06 11:04:39 by sforesti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,8 @@
 void	exit_fail(t_list *a)
 {
 	(void)a;
-	ft_printf("Error\ncontent not int\n");
+	write(2, "Error\n", 6);
 	ft_lstclear(&a, ft_lstdel);
-	system("leaks push_swap");
 	exit(0);
 }
 
@@ -95,7 +94,7 @@ void	init_pos(t_list	**a)
 	min = found_min(a);	
 	while (tmp)
 	{
-		if (tmp->content == (void*)min)
+		if (tmp->content == (void *)min)
 		{
 			tmp->index = i;
 			min = found_min(a);

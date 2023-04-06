@@ -6,7 +6,7 @@
 /*   By: sforesti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 14:22:31 by sforesti          #+#    #+#             */
-/*   Updated: 2023/04/05 15:32:00 by sforesti         ###   ########.fr       */
+/*   Updated: 2023/04/06 09:34:55 by sforesti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,5 @@ int     rrr(t_list **a, t_list	**b);
 void    read_stdout(t_list **a, t_list	**b);
 t_list	*fill_a(char **av);
 t_list	*fill_a_checker(char **av);
+int verif_sort(t_list **a);
 #endif
