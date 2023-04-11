@@ -6,7 +6,7 @@
 /*   By: sforesti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 12:07:27 by sforesti          #+#    #+#             */
-/*   Updated: 2023/04/06 12:22:23 by sforesti         ###   ########.fr       */
+/*   Updated: 2023/04/11 10:45:57 by sforesti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,5 @@ void		manage_exit(t_list **a, char **av, int ac);
 int			verif_sort(t_list **a);
 int			verif_content(char **av);
 void		choose_algo(t_list *a, t_list *b);
+void		exit_fill(char **num_char);
 #endif

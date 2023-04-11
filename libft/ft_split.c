@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sforesti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/28 10:52:17 by sforesti          #+#    #+#             */
-/*   Updated: 2023/04/06 17:04:09 by sforesti         ###   ########.fr       */
+/*   Created: 2022/11/13 16:01:47 by sforesti          #+#    #+#             */
+/*   Updated: 2023/04/11 10:31:09 by sforesti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_is_in_charset(char c, char *charset)
+int	is_charset(char c, char *charset)
 {
 	int	i;
 
@@ -26,91 +26,95 @@ int	ft_is_in_charset(char c, char *charset)
 	return (0);
 }
 
-int	ft_count_words(char *str, char *charset)
+int	size_strs(char const *s, char *c)
 {
 	int	i;
-	int	count;
+	int	j;
 
 	i = 0;
-	count = 0;
-	while (str[i])
+	j = 0;
+	while (s[i])
 	{
-		while (ft_is_in_charset(str[i], charset) && str[i])
-			i++;
-		if (!ft_is_in_charset(str[i], charset) && str[i])
+		while (is_charset(s[i], c) && s[i])
+			i ++;
+		if (!is_charset(s[i], c) && s[i])
 		{
-			count++;
-			while (!ft_is_in_charset(str[i], charset) && str[i])
+			j ++;
+			while (!is_charset(s[i], c) && s[i])
 					i++;
 		}
 	}
-	return (count);
+	return (j);
 }
 
-char	*ft_fill(char *str, int start, int end)
+char	*fill_str(char const *s, int start, int end)
 {
+	char	*str;
 	int		i;
-	int		size;
-	char	*fill_str;
 
+	str = malloc(sizeof(char) * (end - start + 1));
+	if (!str)
+		return (0);
 	i = 0;
-	size = end - start;
-	fill_str = malloc(sizeof(char) * size + 1);
+	ft_printf("%d\n%d\n", start, end);
+	if (start == 0 && end == 1)
+	{
+		str[i++] = s[start];
+		write (1, "a", 1);
+		str[i] = '\0';
+		return (str);
+	}
 	while (start < end)
-		fill_str[i++] = str[start++];
-	fill_str[i] = '\0';
-	return (fill_str);
+		str[i++] = s[start++];
+	str[i] = '\0';
+	return (str);
 }
 
-char	**ft_fill_strs(char *str, char *charset, char **rt_str)
+char	**fill(char const *s, char *c, char **r_str, int verif)
 {
 	int	i;
-	int	s;
-	int	e;
-	int	index;
+	int	j;
+	int	start;
+	int	end;
 
 	i = 0;
-	s = 0;
-	e = 0;
-	index = 0;
-	while (str[i])
+	start = 0;
+	end = 0;
+	j = 0;
+	while (s[i] && !verif)
 	{
-		while (ft_is_in_charset(str[i], charset) && str[i])
+		while (s[i] && is_charset(s[i], c))
 			i++;
-		s = i;
-		while (!ft_is_in_charset(str[i], charset) && str[i])
+		start = i;
+		while (s[i] && !is_charset(s[i], c))
 			i++;
-		e = i;
-		while (ft_is_in_charset(str[i], charset) && str[i])
+		end = i;
+		while (s[i] && is_charset(s[i], c))
 			i++;
-		rt_str[index++] = ft_fill(str, s, e);
+		r_str[j] = fill_str(s, start, end);
+		j ++;
 	}
-	return (rt_str);
+	r_str[j] = 0;
+	return (r_str);
 }
 
-char	**ft_split(char *str, char *charset)
+char	**ft_split(char *s, char *c)
 {
-	char	**rt_str;
+	char	**r_str;
 	int		i;
+	int		verif;
 
 	i = 0;
-	if (charset[0] == '\0' && str[0] != '\0')
-	{
-		rt_str = malloc(sizeof(char *) * 2);
-		while (str[i])
-			i++;
-		rt_str[0] = "\0";
-		rt_str[1] = malloc(-1);
-		return (rt_str);
-	}
-	if (str[0] == '\0')
-	{
-		rt_str = malloc(sizeof(char *));
-		rt_str[0] = malloc(-1);
-	}
-	else
-	rt_str = malloc(sizeof(char *) * ft_count_words(str, charset) + 1);
-	rt_str = ft_fill_strs(str, charset, rt_str);
-	rt_str[ft_count_words(str, charset)] = malloc(-1);
-	return (rt_str);
+	verif = 0;
+	if (!s)
+		return (0);
+	r_str = malloc(sizeof(char *) * (size_strs(s, c) + 1));
+	if (!r_str)
+		return (0);
+	while (is_charset(s[i], c))
+		i++;
+	if (!s[i])
+		verif = 1;
+	r_str = fill(s, c, r_str, verif);
+	return (r_str);
 }

@@ -6,7 +6,7 @@
 /*   By: sforesti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 11:44:11 by sforesti          #+#    #+#             */
-/*   Updated: 2023/04/06 16:50:53 by sforesti         ###   ########.fr       */
+/*   Updated: 2023/04/11 13:07:34 by sforesti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	main(int ac, char **av)
 	t_list	*b;
 
 	b = NULL;
+	a = NULL;
 	if (ac == 1 || (!av[1][0]))
 		return (0);
 	if (ac > 2)

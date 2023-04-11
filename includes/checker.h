@@ -6,7 +6,7 @@
 /*   By: sforesti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 14:22:31 by sforesti          #+#    #+#             */
-/*   Updated: 2023/04/06 16:30:23 by sforesti         ###   ########.fr       */
+/*   Updated: 2023/04/11 11:28:20 by sforesti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,5 @@ int		verif_sort(t_list **a);
 void	manage_error(t_list **a, char **av, int ac);
 int		verif_content(char **av);
 int		verif_pair(t_list **a);
+void	exit_fill(char **num_char);
 #endif

@@ -6,7 +6,7 @@
 /*   By: sforesti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 14:13:56 by sforesti          #+#    #+#             */
-/*   Updated: 2023/04/06 16:43:22 by sforesti         ###   ########.fr       */
+/*   Updated: 2023/04/11 11:28:47 by sforesti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,4 +99,14 @@ void	read_stdout(t_list **a, t_list **b)
 		j = read(STDIN_FILENO, inst, 4);
 	}
 	manage_exit(inst, a, b);
+}
+
+void	exit_fill(char **num_char)
+{
+	int	i;
+
+	i = -1;
+	while (num_char[++i])
+		free(num_char[i]);
+	free(num_char);
 }
