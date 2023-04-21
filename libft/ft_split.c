@@ -6,7 +6,7 @@
 /*   By: sforesti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 16:01:47 by sforesti          #+#    #+#             */
-/*   Updated: 2023/04/11 10:31:09 by sforesti         ###   ########.fr       */
+/*   Updated: 2023/04/21 12:33:39 by sforesti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,11 +56,9 @@ char	*fill_str(char const *s, int start, int end)
 	if (!str)
 		return (0);
 	i = 0;
-	ft_printf("%d\n%d\n", start, end);
 	if (start == 0 && end == 1)
 	{
 		str[i++] = s[start];
-		write (1, "a", 1);
 		str[i] = '\0';
 		return (str);
 	}
