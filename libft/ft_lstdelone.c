@@ -6,7 +6,7 @@
 /*   By: sforesti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 18:13:05 by sforesti          #+#    #+#             */
-/*   Updated: 2023/04/11 11:35:09 by sforesti         ###   ########.fr       */
+/*   Updated: 2023/04/11 14:28:28 by sforesti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_lstdelone(t_list *lst, void (*del)(void*))
 {
 	(void)del;
-	if (!lst) // || !del)
+	if (!lst || !del)
 		return ;
 	free(lst);
 }

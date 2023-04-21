@@ -6,35 +6,50 @@
 /*   By: sforesti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 11:44:11 by sforesti          #+#    #+#             */
-/*   Updated: 2023/04/11 13:07:34 by sforesti         ###   ########.fr       */
+/*   Updated: 2023/04/21 12:17:53 by sforesti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	initialisation(t_list *a, int ac, char **av)
+{
+	if (ac == 1 || (!av[1][0]))
+		return (0);
+	manage_exit(&a, av, ac);
+	init_pos(&a);
+	if (verif_sort(&a) == 1)
+	{
+		ft_lstclear(&a, ft_lstdel);
+		return (0);
+	}
+	return (1);
+}
 
 int	main(int ac, char **av)
 {
 	t_list	*a;
 	t_list	*b;
 
-	b = NULL;
 	a = NULL;
-	if (ac == 1 || (!av[1][0]))
-		return (0);
+	b = NULL;
 	if (ac > 2)
 		a = fill_a(av);
 	else if (ac == 2)
 		a = fill_a_checker(av);
-	manage_exit(&a, av, ac);
-	init_pos(&a);
-	if (verif_sort(&a) == 1)
-	{
-		ft_lstclear(&a, ft_lstdel);
-		system("leaks push_swap");
+	if (!initialisation(a, ac, av))
 		return (0);
-	}
-	choose_algo(a, b);
-	ft_lstclear(&a, ft_lstdel);
-	system("leaks push_swap");
+	if (ft_lstsize(&a) < 4)
+		algo_small_value(&a);
+	else if (ft_lstsize(&a) == 4)
+		algo_five(&a, &b, 3);
+	else if (ft_lstsize(&a) == 5)
+		algo_five(&a, &b, 4);
+	else if (ft_lstsize(&a) < 101)
+		algo(&a, &b, 12);
+	else if (ft_lstsize(&a) < 501)
+		algo(&a, &b, 30);
+	while (b)
+		algo_bis(&a, &b);
 	return (0);
 }

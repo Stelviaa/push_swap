@@ -6,7 +6,7 @@
 /*   By: sforesti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 18:24:21 by sforesti          #+#    #+#             */
-/*   Updated: 2023/04/03 18:41:48 by sforesti         ###   ########.fr       */
+/*   Updated: 2023/04/21 11:42:06 by sforesti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,11 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 
 	if (!lst || !del)
 		return ;
-	while (*lst)
+	while ((*lst))
 	{
 		l_bis = (*lst)->next;
 		ft_lstdelone(*lst, del);
-		*lst = l_bis;
+		(*lst) = l_bis;
 	}
+	lst = NULL;
 }
