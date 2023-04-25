@@ -6,15 +6,32 @@
 /*   By: sforesti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 11:44:11 by sforesti          #+#    #+#             */
-/*   Updated: 2023/04/21 12:32:11 by sforesti         ###   ########.fr       */
+/*   Updated: 2023/04/25 11:06:47 by sforesti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+int	start_exit(char **av, int ac)
+{
+	int	i;
+
+	i = 0;
+	if (ac == 1 || av[1][0] == '\0')
+		exit (0);
+	while (av[1][i] == 32)
+		i ++;
+	if (av[1][i] == '\0')
+	{
+		write (2, "Error\n", 6);
+		exit (0);
+	}
+	return (0);
+}
+
 int	initialisation(t_list *a, int ac, char **av)
 {
-	if (ac == 1 || (!av[1][0]))
+	if (ac == 1)
 		return (0);
 	manage_exit(&a, av, ac);
 	init_pos(&a);
@@ -33,6 +50,7 @@ int	main(int ac, char **av)
 
 	a = NULL;
 	b = NULL;
+	start_exit(av, ac);
 	if (ac > 2)
 		a = fill_a(av);
 	else if (ac == 2)

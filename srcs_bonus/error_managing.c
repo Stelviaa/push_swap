@@ -6,7 +6,7 @@
 /*   By: sforesti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 16:22:55 by sforesti          #+#    #+#             */
-/*   Updated: 2023/04/06 16:41:48 by sforesti         ###   ########.fr       */
+/*   Updated: 2023/04/25 10:49:30 by sforesti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ int	verif_pair(t_list **a)
 				free_tab(tab_val);
 		}
 		tmp_val = tab_val[i];
-		j = i + 1;
+		j = i;
 	}
 	free(tab_val);
 	return (0);

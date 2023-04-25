@@ -21,8 +21,10 @@ all:	$(NAME)
 $(NAME):	$(OBJS)
 			make -C libft
 			$(CC) -o $(NAME) $(OBJS) $(LIBS)
+			
+bonus: $(NAME_BONUS)
 
-bonus:	$(OBJS_BONUS)
+$(NAME_BONUS):	$(OBJS_BONUS)
 		make -C libft
 		$(CC) -o $(NAME_BONUS) $(OBJS_BONUS) $(LIBS)
 

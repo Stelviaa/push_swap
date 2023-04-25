@@ -6,7 +6,7 @@
 /*   By: sforesti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 10:20:23 by sforesti          #+#    #+#             */
-/*   Updated: 2023/04/11 12:50:20 by sforesti         ###   ########.fr       */
+/*   Updated: 2023/04/25 10:50:03 by sforesti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*rotate(t_list **a, int name)
 	t_list	*tmp;
 	t_list	*begin_l;
 
+	if (ft_lstsize(a) < 2)
+		return (0);
 	begin_l = (*a)->next;
 	tmp = (*a);
 	(tmp)->next = NULL;
@@ -41,6 +43,8 @@ char	*reverse_rotate(t_list **a, int name)
 	t_list	*l_bis;
 	t_list	*swap;
 
+	if (ft_lstsize(a) < 2)
+		return (0);
 	l_bis = ft_lstlast(a);
 	swap = (*a);
 	while ((*a)->next->next)
